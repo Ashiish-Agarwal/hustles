@@ -13,6 +13,7 @@ import React from 'react'
 interface PageProps {
   params: Promise<{id: string}>
   }
+  //changes
 
 
 
