@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils"
 import MaxwidthWrapper from "../Max-width-Wrapper"
 import { db } from "@/db/db"
 import Link from "next/link"
-import { Suspense } from "react"
   
   const cardcompnonet = async () => {
 

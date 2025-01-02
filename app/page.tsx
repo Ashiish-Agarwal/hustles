@@ -5,12 +5,12 @@ const page = () => {
   
   return (
     <div>
-      <div>
+      
         <Card />
      
       
        
-      </div>
+      
       
     </div>
   )

@@ -6,7 +6,7 @@
 import { buttonVariants } from './ui/button';
 import Link from 'next/link';
 import { IoExitOutline } from "react-icons/io5";
-import { FaHome } from "react-icons/fa";
+import { FaArrowCircleLeft, FaHome } from "react-icons/fa";
 
 
 
@@ -62,6 +62,8 @@ import { FaHome } from "react-icons/fa";
 <div className='flex '>
 
 <RegisterLink className={buttonVariants({})}> Register <FaHome className='text-white'/>  </RegisterLink>
+
+<LoginLink className={buttonVariants({})}>Log in <FaArrowCircleLeft className='text-white hover:text-zinc-300 '/></LoginLink>
         
 
       </div>
