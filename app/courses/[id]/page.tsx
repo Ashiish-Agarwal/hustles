@@ -1,30 +1,38 @@
 import { db } from '@/db/db'
-import { Card ,CardTitle ,CardContent, CardDescription, CardFooter} from '@/components/ui/card'
+import { Card ,CardTitle ,CardContent, CardDescription} from '@/components/ui/card'
 import MaxwidthWrapper from '@/components/Max-width-Wrapper'
-import Image from 'next/image'
-import Link from 'next/link'
+
+
+
 import { buttonVariants } from '@/components/ui/button'
-import { Suspense } from 'react'
 
-import Loading from '@/components/loading'
 
-interface Params{
-  params:{
-    id: string
+import { notFound } from 'next/navigation'
+import React from 'react'
+
+interface PageProps {
+  params: Promise<{id: string}>
   }
-  Image:string
+  //changes
+
+
+
+
+  const  Dynamic:React.FC<PageProps> =  async ({params}:PageProps)=>  {
+
+
+  const {id}= await params
   
 
-  
-}
-
-const Dynamic = async (params:Params) => {
  
   const data =  await db.adminPannnel.findFirst({
-    where:{id:parseInt(params.params.id)}
+    where:{id:parseInt(id)}
 
     
   })
+  if (!data) {
+    return notFound();
+  }
  
  
  
@@ -37,7 +45,8 @@ const Dynamic = async (params:Params) => {
     <div>
 
     <MaxwidthWrapper className='p-2 flex flex-col relative'>
-      <Suspense fallback={<Loading/>}></Suspense>
+     
+      
 
      <Card className='p-2 content-center h-full w-full  '>
 
@@ -72,6 +81,7 @@ const Dynamic = async (params:Params) => {
       </div>
 
      </Card>
+     
 
 
     </MaxwidthWrapper>
@@ -81,5 +91,9 @@ const Dynamic = async (params:Params) => {
     
   )
 }  
+
+
+
+
 
 export default Dynamic
