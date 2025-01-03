@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { Children, ReactNode } from 'react'
+import {  ReactNode } from 'react'
 
 interface Maxwidthprops{
     children:ReactNode,
