@@ -1,6 +1,7 @@
 import { db } from '@/db/db'
 import { Card ,CardTitle ,CardContent, CardDescription} from '@/components/ui/card'
 import MaxwidthWrapper from '@/components/Max-width-Wrapper'
+<<<<<<< HEAD
 
 
 
@@ -10,6 +11,16 @@ import Loading from '@/components/loading'
 
 import { notFound } from 'next/navigation'
 import React, { Suspense } from 'react'
+=======
+
+
+
+import { buttonVariants } from '@/components/ui/button'
+
+
+import { notFound } from 'next/navigation'
+import React from 'react'
+>>>>>>> 7f1114d0d995d45d266bda364b9d9934fade1267
 
 interface PageProps {
   params: Promise<{id: string}>
@@ -101,4 +112,8 @@ interface PageProps {
 
 
 
+<<<<<<< HEAD
 export default Dynamic
+=======
+export default Dynamic
+>>>>>>> 7f1114d0d995d45d266bda364b9d9934fade1267

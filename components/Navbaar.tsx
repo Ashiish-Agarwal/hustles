@@ -1,5 +1,12 @@
 
+<<<<<<< HEAD
 'use client'
+=======
+ 
+ import React from 'react'
+ import {RegisterLink,LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+ import {getKindeServerSession} from "@kinde-oss/kinde-auth-nextjs/server"
+>>>>>>> 7f1114d0d995d45d266bda364b9d9934fade1267
 import { buttonVariants } from './ui/button';
 import Link from 'next/link';
 import { SignUpButton,UserButton,useUser} from "@clerk/nextjs"
