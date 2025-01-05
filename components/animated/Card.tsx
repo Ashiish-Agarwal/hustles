@@ -6,10 +6,7 @@ import { cn } from "@/lib/utils"
 import MaxwidthWrapper from "../Max-width-Wrapper"
 import { db } from "@/db/db"
 import Link from "next/link"
-<<<<<<< HEAD
-=======
 
->>>>>>> 7f1114d0d995d45d266bda364b9d9934fade1267
   
   const cardcompnonet = async () => {
 
