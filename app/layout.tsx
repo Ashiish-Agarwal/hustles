@@ -6,6 +6,10 @@ import Footer from "@/components/footer";
 import Loading from "@/components/loading";
 import { Suspense } from "react";
 
+import {
+  ClerkProvider
+} from '@clerk/nextjs'
+
 
 
 
@@ -33,13 +37,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+<ClerkProvider>
   
 
 
     <html lang="en">
 
       <body
-        className={` relative ${geistSans.variable} ${geistMono.variable} dark  antialiased`}
+        className={`   relative ${geistSans.variable} ${geistMono.variable} dark  antialiased`}
         >
           <Suspense fallback={<Loading/>}>
           
@@ -49,13 +54,17 @@ export default function RootLayout({
         <Navbaar/>
 
           </div>
+          <section className="flex justify-center items-center">
+
         {children}
+          </section>
         
         <Footer />
           
           </Suspense>
       </body>
     </html>
+          </ClerkProvider>
   
   );
 }

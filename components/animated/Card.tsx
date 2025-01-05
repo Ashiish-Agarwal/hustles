@@ -14,7 +14,7 @@ import Link from "next/link"
 
 const HomePageData = await db.adminPannnel.findMany()
 
-const DynamicRoute = await HomePageData.map((elem)=>(
+const DynamicRoute =  HomePageData.map((elem)=>(
   
 <div key={elem.id} className=" h-full w-full    ">
 

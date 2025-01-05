@@ -1,21 +1,30 @@
 
- 
- import React from 'react'
- import {RegisterLink, LoginLink,LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
- import {getKindeServerSession} from "@kinde-oss/kinde-auth-nextjs/server"
+'use client'
 import { buttonVariants } from './ui/button';
 import Link from 'next/link';
-import { IoExitOutline } from "react-icons/io5";
-import { FaArrowCircleLeft, FaHome } from "react-icons/fa";
+import { SignUpButton,UserButton,useUser} from "@clerk/nextjs"
+
+
+
+ const Navbaar = () => {
+
+  const {user} = useUser()  
+ 
+  
+  const setuser = user
+  const admin = user?.emailAddresses === process.env.Admin
+  console.log(`admin: ${admin}`)
+
+  
+
+
+ 
+
+ 
 
 
 
 
- const Navbaar = async() => {
-
-  const {getUser} =  getKindeServerSession();
-  const setUser =  await getUser() 
-  const admin= setUser?.email === process.env.useradmin
  
 
   
@@ -31,46 +40,84 @@ import { FaArrowCircleLeft, FaHome } from "react-icons/fa";
         <Link href='/' className='font-semibold flex    '>Corse <span className='text-blue-500'>Man</span></Link>
        </div>
 
+       {
+        // side nave
+       }
+
         <div className='flex  gap-5   relative w-[15%] justify-end    '>
 
 
-      <div> <Link href='/' className={buttonVariants({ className:'text-white font-semibold duration-700' ,variant:'ghost',size:'lg' })}> Courses</Link>
-        </div>
-      <div className=' flex w-full'>{setUser ? (
-        <div className='flex gap-2  '>
-
-        
-        {admin  ? <div>
-          <Link href='/Admin' className={buttonVariants({ variant:"link" ,className:'duration-700'})}>
-          Admin
-          </Link>
-         
-
-        </div>: null }
-        <div className='px-4 '>
-
-        <LogoutLink className={buttonVariants({size:'sm' ,className:'bg-red-500 hover:bg-red-700  '})}>  <IoExitOutline className='text-white'/>  </LogoutLink>
-        </div>
-
-        <div>
-        </div>
+      <div> <Link href='/' className={buttonVariants({ className:'text-white font-semibold duration-700' ,variant:'ghost',size:'lg' })}> Courses</Link></div>
 
 
-      </div>
-    ):(<div>
+<div className='flex h-full w-full '>
 
-<div className='flex '>
 
-<RegisterLink className={buttonVariants({})}> Register <FaHome className='text-white'/>  </RegisterLink>
+{setuser? (
+  
+  <>
+  <div className='flex gap-4 pr-2  '>
 
-<LoginLink className={buttonVariants({})}>Log in <FaArrowCircleLeft className='text-white hover:text-zinc-300 '/></LoginLink>
-        
+  <div className='flex gap-4 '>
 
-      </div>
 
-    </div>)} </div></div>
+  
+  </div>
+  <div >
+
+
+
+
+
+
+  {admin? (<div >
+    
+  
+    <Link className={buttonVariants({variant:'link'})} href='/Admin'> Admin</Link>
+  </div>):null}
+  </div>
+  <div className=''>
+<UserButton component={buttonVariants({
+  size:'lg'
+})} />
+
+  </div>
+  </div>
+  </>
+
+
+  
+
+ 
+  
+   ):(
+    <div className='flex h-full w-full '>
+
+    <div className='pr-8 flex  '>
+
+   
+    
+    
+       <div className={buttonVariants({ size:'lg'})}>
+
+        <SignUpButton ><span className='font-bold text-white ' >signUp</span></SignUpButton>
+       </div>
      </div>
-          </div>
+    </div>
+     )}
+</div>
+      
+      
+        
+       
+
+
+
+
+        
+        </div></div>
+     </div>
+          
    )
  }
  

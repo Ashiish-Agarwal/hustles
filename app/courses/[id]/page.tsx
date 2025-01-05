@@ -5,10 +5,11 @@ import MaxwidthWrapper from '@/components/Max-width-Wrapper'
 
 
 import { buttonVariants } from '@/components/ui/button'
+import Loading from '@/components/loading'
 
 
 import { notFound } from 'next/navigation'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 interface PageProps {
   params: Promise<{id: string}>
@@ -18,7 +19,7 @@ interface PageProps {
 
 
 
-const  Dynamic:React.FC<PageProps> = async ({params}:PageProps)=>  {
+  const  Dynamic:React.FC<PageProps> =  async ({params}:PageProps)=>  {
 
 
   const {id}= await params
@@ -42,7 +43,10 @@ const  Dynamic:React.FC<PageProps> = async ({params}:PageProps)=>  {
 
   return (
     <>
-    <div>
+    <Suspense fallback={<Loading/>}></Suspense>
+    
+
+    <div className='flex justify-center items-center'>
 
     <MaxwidthWrapper className='p-2 flex flex-col relative'>
      
@@ -87,6 +91,7 @@ const  Dynamic:React.FC<PageProps> = async ({params}:PageProps)=>  {
     </MaxwidthWrapper>
 
     </div>
+    
     </>
     
   )
