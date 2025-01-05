@@ -11,7 +11,7 @@ import Link from "next/link"
   const cardcompnonet = async () => {
 
 
-
+//card
 
 const HomePageData = await db.adminPannnel.findMany()
 
