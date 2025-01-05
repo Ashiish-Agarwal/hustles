@@ -3,8 +3,6 @@
 
  
  import React from 'react'
- import {RegisterLink,LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
- import {getKindeServerSession} from "@kinde-oss/kinde-auth-nextjs/server"
 
 import { buttonVariants } from './ui/button';
 import Link from 'next/link';
