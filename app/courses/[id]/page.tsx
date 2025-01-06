@@ -68,26 +68,31 @@ interface PageProps {
       </div>
       </div>
       <div className='flex flex-col p-5 '>
+        <div className='flex items-center justify-center'>
 
 
-      <CardTitle className='text-5xl font-semibold flex gap-2  text-pretty text-blue-500 shadow-inner pb-5 pl-3    '>{`Tital:${data?.Tital}`}</CardTitle>
-      <CardContent className='pt-24 flex flex-col ' >
-        <div className='bg-blue-800 w-fit font-semibold p-2 text-2xl rounded-md select-none '>key Points</div>
-        <ul>
 
-          <li className='text-pretty text-2xl select-none pb-10 '>{ `key points of the course${data?.About}`}</li>
-        </ul>
+      <CardTitle className='text-5xl leading-8  flex gap-2 capitalize text-pretty text-white shadow-inner pb-5 pl-3 text-center   '>{`${data?.Tital}`}</CardTitle>
+      
+        </div>
+        <div className='flex items-center justify-center'>
+
+      <CardDescription className='flex text-pretty font-thin leading-snug pt-10  text-sm w-[70%] select-none '>
         
-      </CardContent>
-        <span className='bg-blue-800 rounded-sm w-fit text-2xl p-2 select-none   '>Decriptions</span>
-      <CardDescription className='flex text-pretty text-2xl select-none'>
+         {`${data?.Description}`}
+       
+
+
+
         
-        {`${data?.Description}`}</CardDescription>
+
+        </CardDescription>
+        </div>
       </div>
       <div className='pt-10 pb-24 select-none flex justify-center items-center'>
 
 
-      <a  className={buttonVariants({className:'w-[45%] h-10   font-bold text-3xl text-white cursor-grabbing '})} href= {data?.Link as string}>Here The Link</a>
+      <a  className={buttonVariants({className:'w-[30%] h-10 btn-grad     font-bold text-3xl text-white cursor-grabbing '})} href= {data?.Link as string}>Here The Link</a>
       </div>
 
      </Card>

@@ -16,8 +16,8 @@ import { SignUpButton,UserButton,useUser} from "@clerk/nextjs"
  
   
   const setuser = user
-  const admin = user?.emailAddresses === process.env.Admin
-  console.log(`admin: ${admin}`)
+  const admin = user?.emailAddresses=== process.env.admin
+  
 
   
 
